@@ -1,0 +1,10 @@
+<h1>Shortener</h1>
+<%= form_for :shortener ,url: shortener_index_path do |f| %>
+  <p>
+    <%= f.label :URL %><br>
+    <%= f.text_field :origin_url %>
+  </p>
+  <p>
+    <%= f.submit "Generate"%>
+  </p>
+<% end %>
