@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208020954) do
+ActiveRecord::Schema.define(version: 20170208090252) do
 
   create_table "shortened_urls", force: :cascade do |t|
     t.integer  "owner_id"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20170208020954) do
     t.index ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type"
     t.index ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true
     t.index ["url"], name: "index_shortened_urls_on_url"
+  end
+
+  create_table "user_lists", force: :cascade do |t|
+    t.string   "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

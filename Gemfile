@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'shortener'
+gem 'shortener', '0.6.2', git: 'git@github.com:chucobo124/shortener.git', branch: 'develop'
+gem 'browser'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
