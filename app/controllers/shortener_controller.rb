@@ -1,6 +1,4 @@
 class ShortenerController < ApplicationController
-  include ::Shortener::ShortenerHelper
-  include Shortener
   def index
   end
 
@@ -20,6 +18,5 @@ class ShortenerController < ApplicationController
     user = UserList.find_or_create_by session_id: session[:session_id]
     browser_detail = Browser.new(request.env['HTTP_USER_AGENT'],
                                  accept_language: 'en-us')
-    byebug
   end
 end
