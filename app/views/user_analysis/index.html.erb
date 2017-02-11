@@ -3,14 +3,18 @@
     <td>Session id</td>
     <td>IP Address</td>
     <td>Login Count</td>
+    <td>Go To</td>
     <td>Device Type</td>
+    <td>OS</td>
   </tr>
   <%@shorteners.each do |shortener|%>
   <tr>
     <td><%=shortener.user.session_id%></td>
     <td><%=shortener.user.ip_address%></td>
     <td><%=shortener.use_count%></td>
+    <td><%=shortener.url%></td>
     <td><%=shortener.user.device_type%></td>
+    <td><%=shortener.user.os%></td>
   </tr>
   <%end%>
 </table>

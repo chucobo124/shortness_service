@@ -5,7 +5,12 @@ class User < ApplicationRecord
   def check_device_type
     browser_detail = Browser.new(user_agent,
                                  accept_language: 'en-us')
-    borwser_name = browser_detail.name.downcase.delete(' ')
+    borwser_name = @browser_detail.name.downcase.delete(' ')
     self.device_type = User.device_types[borwser_name]
+  end
+  def os
+    browser_detail = Browser.new(user_agent,
+                                 accept_language: 'en-us')
+    browser_detail.platform
   end
 end
