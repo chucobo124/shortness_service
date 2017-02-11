@@ -1,14 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe ShortenerController, type: :controller do
-  let(:unique_key) { SecureRandom.hex(5) }
   let(:url) { Faker::Internet.url }
   let(:user) { create(:user) }
-
+  let(:shortener) { user.shorteners.create(url: url) }
+  let(:unique_key) { shortener.unique_key }
+  
   describe '#show' do
-    before do
-      user.shorteners.create(url: url, unique_key: unique_key)
-    end
     subject { get :show, params: { id: user.id, unique_key: unique_key } }
     it { is_expected.to have_http_status(:ok) }
     it 'returns the shortener' do

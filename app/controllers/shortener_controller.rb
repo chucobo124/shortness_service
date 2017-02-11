@@ -21,13 +21,13 @@ class ShortenerController < ApplicationController
 
   def create
     url = params[:shortener][:origin_url]
-    unique_key = SecureRandom.hex(5)
     session[:ip] = request.remote_ip
     user = User.find_or_create_by session_id: session[:session_id]
     user.update(ip_address: session[:ip],
                 user_agent: request.env['HTTP_USER_AGENT'])
     if user.save
-      user.shorteners.create(url: url, unique_key: unique_key)
+      shortener = user.shorteners.find_or_create_by url: url
+      unique_key = shortener.unique_key
       redirect_to shortener_path(user.id) + "/#{unique_key}"
     else
       redirect_to shortener_index_path
