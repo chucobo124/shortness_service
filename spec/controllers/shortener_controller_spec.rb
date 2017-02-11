@@ -4,11 +4,6 @@ RSpec.describe ShortenerController, type: :controller do
   let(:unique_key) { SecureRandom.hex(5) }
   let(:url) { Faker::Internet.url }
   let(:user) { create(:user) }
-  describe '#index' do
-  end
-
-  describe '#new' do
-  end
 
   describe '#show' do
     before do

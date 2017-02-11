@@ -1,11 +1,5 @@
 require 'securerandom'
 class ShortenerController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
   def show
     shortener = User.find(params[:id])
                     .shorteners.find_by_unique_key(params[:unique_key])
