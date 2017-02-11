@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :shortener
-  get '/:id' => "shortener#fetch_shortener"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :shortener, except: :show
+  match '/shortener/:id/:unique_key', to: 'shortener#show', via: :get
+  get '/:unique_key' => 'shortener#fetch_shortener'
 end

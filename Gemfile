@@ -39,6 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
