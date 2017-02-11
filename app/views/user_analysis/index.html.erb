@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>Session id</td>
+    <td>IP Address</td>
+    <td>Login Count</td>
+    <td>Device Type</td>
+  </tr>
+  <%@shorteners.each do |shortener|%>
+  <tr>
+    <td><%=shortener.user.session_id%></td>
+    <td><%=shortener.user.ip_address%></td>
+    <td><%=shortener.use_count%></td>
+    <td><%=shortener.user.device_type%></td>
+  </tr>
+  <%end%>
+</table>
+<p><label>total_session:</label><span><%=@total_session%></span></p>
+<p><label>total_user:</label><span><%=@total_user%></span></p>

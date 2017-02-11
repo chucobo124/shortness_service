@@ -19,12 +19,13 @@ RSpec.describe ShortenerController, type: :controller do
   end
 
   describe '#create' do
-    let(:params_data) { { shortener: { origin_url: Faker::Internet.url } } }
+    let(:params_data) { { shortener: { origin_url: url } } }
     subject { post :create, params: params_data }
     it { is_expected.to have_http_status(:redirect) }
     it 'saves the shortener' do
       subject
-      expect(Shortener.find_by_url(params_data[:origin_url])).not_to be nil
+      expect(Shortener.find_by_url(params_data[:shortener][:origin_url]))
+        .not_to be nil
     end
     context 'when user is robot' do
       it 'blocks the user and give 404'
